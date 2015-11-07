@@ -5,9 +5,6 @@ html {
   font-family: 'Open Sans', sans-serif;
   color: white;
 }
-a {
-  text-decoration: none;
-}
 body {
   background-color: #535A5E;
   width: 100%;
@@ -18,6 +15,7 @@ body {
   right: 0;
   bottom: 0;
   overflow: hidden;
+  white-space: nowrap;
 }
 #sysbar {
   -webkit-app-region: drag;
@@ -50,17 +48,18 @@ body {
 }
 #sysbar .menu-container .item .sub-menu {
   position: absolute;
-  white-space: nowrap;
   top: 30px;
   min-width: 50px;
   min-height: 30px;
   background-color: #2E3233;
+  border: 1px solid black;
   border-top: none;
   display: none;
 }
 #sysbar .menu-container .item .sub-menu .sub-item {
   border-bottom: 1px solid #303030;
   color: gray;
+  width: 100%;
   text-align: left;
   padding-left: 15px;
   padding-right: 15px;
@@ -89,53 +88,58 @@ body {
 #sysbar .action-container .bubble-bt {
   height: 17px;
   width: 17px;
-  border-radius: 17px;
+  line-height: 5px;
   cursor: pointer;
   transition: 0.2s;
   display: inline-block;
   vertical-align: top;
   margin-right: 2px;
-  background-color: black;
 }
 #sysbar .action-container .bubble-red {
-  background-color: #FF605C;
+  color: #FF605C;
 }
 #sysbar .action-container .bubble-red:hover {
-  background-color: #dc4642;
+  color: #dc4642;
 }
 #sysbar .action-container .bubble-green {
-  background-color: #0ECA37;
+  color: #0ECA37;
 }
 #sysbar .action-container .bubble-green:hover {
-  background-color: #0fa12e;
+  color: #0fa12e;
 }
 #sysbar .action-container .bubble-orange {
-  background-color: #FEBD00;
+  color: #FEBD00;
 }
 #sysbar .action-container .bubble-orange:hover {
-  background-color: #d09d07;
+  color: #d09d07;
 }
 #sidebar {
+  position: relative;
   vertical-align: top;
   display: inline-block;
   background-color: #393E3F;
+  z-index: 1;
   width: 20%;
   height: 100%;
-  border-right: 1px solid #303030;
+  border-right: 1px solid black;
   padding-top: 20px;
   overflow-x: auto;
   overflow-y: hidden;
+  float: left;
 }
-#sidebar .header-item {
+#sidebar .header-input {
   white-space: nowrap;
-  color: white;
-  font-size: 17px;
-  padding-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  cursor: pointer;
+  color: black;
+  background-color: #E9EAED;
+  font-size: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+  width: 80%;
+  padding: 2px;
+  float: left;
 }
-#sidebar .header-item i {
+#sidebar .header-input i {
   margin-right: 2px;
   font-size: 13px;
 }
@@ -159,4 +163,59 @@ body {
 #main-content {
   display: inline-block;
   vertical-align: top;
+  width: 80%;
+  margin-left: -5px;
+}
+
+.ptable {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.ptable .torrent-item {
+  cursor: pointer;
+}
+.ptable tr {
+  width: 100%;
+}
+.ptable tr th {
+  background-color: #2E3233;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+  font-size: 14px;
+}
+.ptable tr th i {
+  margin-right: 5px;
+}
+.ptable tr td {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  padding: 5px;
+  border-bottom: 1px solid #393E3F;
+  position: relative;
+}
+.ptable tr .progress-bar {
+  width: 50%;
+  height: 100%;
+  background-color: #4A7B4A;
+  position: relative;
+}
+.ptable tr .centered-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 30px;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  font-size: 11px;
+}
+.ptable tr:nth-child(odd) {
+  background-color: #393E3F;
 }

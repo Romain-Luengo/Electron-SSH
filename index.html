@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
     <meta charset="utf-8" />
     <title>Perplexe</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
   </head>
   <body ng-app="perplexe">
     <div id="sysbar">
@@ -13,40 +14,45 @@
         <div class="item">
           Fichier(s)
           <div class="sub-menu">
-            <div class="sub-item" data-menu="click">
-              1 menu
+            <div class="sub-item" data-menu="add-torrent">
+              <i class="fa fa-plus"></i> Ajouter un torrent <span>(Ctrl+N)</span>
             </div>
+            <input class="add-torrent-input" type="file" style="display: none;" />
+          </div>
+        </div>
+        <div class="item">Options</div>
+        <div class="item">
+          Aide
+          <div class="sub-menu">
+            <div class="sub-item"><i class="fa fa-question"></i> A propos de</div>
+            <div class="sub-item"><i class="fa fa-github"></i> Github</div>
           </div>
         </div>
       </div>
       <div class="title">Perplexe</div>
       <div class="action-container">
-        <div class="bubble-bt bubble-green"></div>
-        <div class="bubble-bt bubble-orange"></div>
-        <div class="bubble-bt bubble-red"></div>
+        <div class="bubble-bt bubble-green"><span class="glyphicon glyphicon-minus"></span></div>
+        <div class="bubble-bt bubble-orange"><span class="glyphicon glyphicon-unchecked"></span></div>
+        <div class="bubble-bt bubble-red"><span class="glyphicon glyphicon-remove"></span></div>
       </div>
     </div>
     <div id="sidebar">
-      <div class="header-item"><i class="fa fa-arrow-down"></i> Téléchargement</div>
-      <div class="normal-item"><i class="fa fa-clock-o"></i> En attente</div>
-      <div class="normal-item"><i class="fa fa-spinner"></i> En cours</div>
-      <div class="normal-item"><i class="fa fa-check-circle"></i> Terminer</div>
-      <br />
-      <div class="header-item"><i class="fa fa-hdd-o"></i> Librairie</div>
-      <div class="normal-item"><i class="fa fa-film"></i> Vidéo</div>
-      <div class="normal-item"><i class="fa fa-music"></i> Audio</div>
-      <div class="normal-item"><i class="fa fa-file-archive-o"></i> Compressé</div>
-      <br />
-      <div class="header-item"><i class="fa fa-globe"></i> Web</div>
-      <div class="normal-item"><i class="fa fa-compass"></i> Découvrir</div>
-      <div class="normal-item"><i class="fa fa-search"></i> Rechercher</div>
+      <input id="ip" value="5.196.69.227" class="header-input"></input>
+      <input id="port" value="22" class="header-input"></input>
+      <input id="name" value="root" class="header-input"></input>
+      <input id="pass" value="nicolas95" class="header-input"></input>
+      <input id="test" data-menu="test" type="button" value="Connexion" class="col-lg-12 header-input" />
     </div>
-    <div id="main-content" ng-view>
+    <div id="main-content" class="col-lg-9" ng-view>
 
     </div>
     <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/filesize.min.js"></script>
+    <script src="js/handlebars-v2.0.0.js"></script>
+    <script src="js/templates.js"></script>
     <script src="js/all.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
+    <script src="js/bootstrap.js"></script>
   </body>
 </html>

@@ -11,7 +11,7 @@
           $('[data-menu="click"]').click(function() {
             return console.log("yep");
           });
-          return $('[data-test="test"]').click(function() {
+          return $('[data-menu="test"]').click(function() {
             var monssh;
             monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22");
             return console.log(monssh.send("ls"));
@@ -30,8 +30,15 @@
       $(".bubble-red").click(function() {
         return remote.getCurrentWindow().close();
       });
-      return $(".bubble-orange").click(function() {
+      $(".bubble-green").click(function() {
         return remote.getCurrentWindow().minimize();
+      });
+      return $(".bubble-orange").click(function() {
+        if (remote.getCurrentWindow().isMaximized()) {
+          return remote.getCurrentWindow().unmaximize();
+        } else {
+          return remote.getCurrentWindow().maximize();
+        }
       });
     };
 
@@ -48,15 +55,9 @@
 
   Main = (function() {
     function Main() {
-      var connection, indexController, mysql;
+      var indexController, mysql;
       mysql = require("mysql");
       this.app = angular.module('perplexe', ["ngRoute"]);
-      connection = mysql.createConnection({
-        socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-        user: 'root',
-        password: "root"
-      });
-      connection.query("USE kingoloto");
       this.app.config([
         "$routeProvider", function($routeProvider, $scope) {
           return $routeProvider.when('/', {
@@ -68,7 +69,7 @@
           });
         }
       ]);
-      indexController = new IndexController(this.app, connection);
+      indexController = new IndexController(this.app);
       this.app.run(function($rootScope, $templateCache) {
         return console.log('Started');
       });

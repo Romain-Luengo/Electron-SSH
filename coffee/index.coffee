@@ -6,7 +6,7 @@ class IndexController
       $('[data-menu="click"]').click ->
         console.log "yep"
 
-      $('[data-test="test"]').click ->
+      $('[data-menu="test"]').click ->
         monssh = new ssh $("#ip").val(), $("#name").val(), $("#pass").val(), "22"
         console.log monssh.send("ls")
 
@@ -17,6 +17,12 @@ class IndexController
     remote = require 'remote'
     $(".bubble-red").click ->
       remote.getCurrentWindow().close()
-    $(".bubble-orange").click ->
+    $(".bubble-green").click ->
       remote.getCurrentWindow().minimize()
+    $(".bubble-orange").click ->
+      if remote.getCurrentWindow().isMaximized()
+        remote.getCurrentWindow().unmaximize()
+      else
+        remote.getCurrentWindow().maximize()
+
 window.IndexController = IndexController

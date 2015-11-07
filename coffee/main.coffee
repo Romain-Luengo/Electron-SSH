@@ -3,13 +3,6 @@ class Main
     mysql = require "mysql"
     @app = angular.module('perplexe', ["ngRoute"])
 
-    #connexion mysql
-    connection = mysql.createConnection {
-      socketPath : '/Applications/MAMP/tmp/mysql/mysql.sock',
-      user       : 'root',
-      password   : "root"
-    }
-    connection.query "USE kingoloto"
     # Setup routes
     @app.config ["$routeProvider", ($routeProvider, $scope) ->
       $routeProvider
@@ -24,7 +17,7 @@ class Main
         }
 
     ]
-    indexController = new IndexController @app, connection
+    indexController = new IndexController @app
     @app.run ($rootScope, $templateCache) ->
       console.log 'Started'
 

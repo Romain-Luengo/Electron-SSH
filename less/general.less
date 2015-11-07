@@ -4,9 +4,6 @@ body, html {
   font-family: 'Open Sans', sans-serif;
   color: white;
 }
-a {
-  text-decoration: none;
-}
 
 body {
   background-color: #535A5E;
@@ -15,6 +12,7 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 #sysbar {
@@ -49,17 +47,18 @@ body {
 
       .sub-menu {
         position: absolute;
-        white-space: nowrap;
         top: 30px;
         min-width: 50px;
         min-height: 30px;
         background-color: #2E3233;
+        border: 1px solid black;
         border-top: none;
         display: none;
 
         .sub-item {
           border-bottom: 1px solid #303030;
           color: gray;
+          width: 100%;
           text-align: left;
           padding-left: 15px;
           padding-right: 15px;
@@ -99,61 +98,65 @@ body {
       @size: 17px;
       height: @size;
       width: @size;
-      border-radius: @size;
+      line-height: 5px;
       cursor: pointer;
       transition: 0.2s;
       display: inline-block;
       vertical-align: top;
       margin-right:2px;
-      background-color: black;
     }
 
     .bubble-red {
-      background-color: #FF605C;
+      color: #FF605C;
 
       &:hover {
-        background-color: #dc4642;
+        color: #dc4642;
       }
     }
 
     .bubble-green {
-      background-color: #0ECA37;
+      color: #0ECA37;
 
       &:hover {
-        background-color: #0fa12e;
+        color: #0fa12e;
       }
     }
 
     .bubble-orange {
-      background-color: #FEBD00;
+      color: #FEBD00;
 
       &:hover {
-        background-color: #d09d07;
+        color: #d09d07;
       }
     }
   }
 }
 
 #sidebar {
+  position: relative;
   vertical-align: top;
   display: inline-block;
   background-color: #393E3F;
+  z-index: 1;
   width: 20%;
   height: 100%;
-  border-right: 1px solid #303030;
+  border-right: 1px solid black;
   padding-top: 20px;
   overflow-x: auto;
   overflow-y: hidden;
+  float: left;
 
-  .header-item {
+  .header-input {
     white-space: nowrap;
-    color: white;
-    font-size: 17px;
-    padding-left: 20px;
-    //background-color: #535A5E;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    cursor: pointer;
+    color: black;
+    background-color: #E9EAED;
+    font-size: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%;
+    width: 80%;
+    padding: 2px;
+    float: left;
 
     i {
       margin-right: 2px;
@@ -186,4 +189,6 @@ body {
 #main-content {
   display: inline-block;
   vertical-align: top;
+  width: 80%;
+  margin-left: -5px;
 }
