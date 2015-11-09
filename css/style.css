@@ -169,14 +169,16 @@ body {
   vertical-align: top;
   width: 80%;
   height: 100%;
-  padding: 1%;
+  padding-top: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
 }
 .modal {
   text-align: center;
 }
 .maincontent {
   height: 100%;
-  padding-top: 5px;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
@@ -209,7 +211,8 @@ body {
   padding-right: 0 !important;
 }
 .maincontent .mainonglet .consolemain {
-  height: 90%;
+  height: 94%;
+  margin-bottom: -40px;
   border-bottom: none;
   border: 1px solid #E7E7E7;
 }
