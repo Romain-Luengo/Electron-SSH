@@ -28,6 +28,9 @@ body {
   text-align: center;
   position: relative;
   z-index: 1000;
+  background-image: url("../img/crossword.png");
+  background-repeat: repeat;
+  background-size: auto;
 }
 #sysbar .menu-container {
   position: absolute;
@@ -49,16 +52,14 @@ body {
 }
 #sysbar .menu-container .item .sub-menu {
   position: absolute;
-  top: 30px;
   min-width: 50px;
   min-height: 30px;
-  background-color: #2E3233;
+  background-color: white;
   border: 1px solid black;
   border-top: none;
   display: none;
 }
 #sysbar .menu-container .item .sub-menu .sub-item {
-  border-bottom: 1px solid #303030;
   color: gray;
   width: 100%;
   text-align: left;
@@ -69,7 +70,7 @@ body {
   font-size: 10px;
 }
 #sysbar .menu-container .item .sub-menu .sub-item:hover {
-  color: white;
+  color: gray;
 }
 #sysbar .menu-container .item:hover {
   color: black;
@@ -122,6 +123,8 @@ body {
   z-index: 1;
   width: 20%;
   height: 100%;
+  border-right: 1px solid #E7E7E7;
+  border-radius: 4px;
   padding-top: 20px;
   overflow-x: auto;
   overflow-y: hidden;

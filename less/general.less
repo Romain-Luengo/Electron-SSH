@@ -1,3 +1,5 @@
+@img: url("../img/crossword.png");
+
 body, html {
   margin: 0;
   padding: 0;
@@ -27,6 +29,9 @@ body {
   text-align: center;
   position: relative;
   z-index: 1000;
+  background-image: @img;
+  background-repeat: repeat;
+  background-size: auto;
 
   .menu-container {
     position: absolute;
@@ -48,16 +53,14 @@ body {
 
       .sub-menu {
         position: absolute;
-        top: 30px;
         min-width: 50px;
         min-height: 30px;
-        background-color: #2E3233;
+        background-color: white;
         border: 1px solid black;
         border-top: none;
         display: none;
 
         .sub-item {
-          border-bottom: 1px solid #303030;
           color: gray;
           width: 100%;
           text-align: left;
@@ -69,7 +72,7 @@ body {
           }
 
           &:hover {
-            color: white;
+            color: gray;
 
           }
         }
@@ -141,7 +144,8 @@ body {
   z-index: 1;
   width: 20%;
   height: 100%;
-  //border-right: 1px solid #E7E7E7;
+  border-right: 1px solid #E7E7E7;
+  border-radius: 4px;
   padding-top: 20px;
   overflow-x: auto;
   overflow-y: hidden;
