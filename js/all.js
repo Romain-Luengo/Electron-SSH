@@ -11,11 +11,12 @@
           $('[data-menu="click"]').click(function() {
             return console.log("yep");
           });
-          $('#myModal').modal('show');
           return $('[data-menu="test"]').click(function() {
             var monssh;
             monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22");
-            return console.log(monssh.send("ls"));
+            return monssh.send("cd../", function(retour) {
+              return console.log(retour);
+            });
           });
         };
       })(this));
@@ -56,8 +57,7 @@
 
   Main = (function() {
     function Main() {
-      var indexController, mysql;
-      mysql = require("mysql");
+      var indexController;
       this.app = angular.module('perplexe', ["ngRoute"]);
       this.app.config([
         "$routeProvider", function($routeProvider, $scope) {
@@ -113,10 +113,12 @@
             if (err) {
               throw err;
             }
-            return stream.on('close', function(code, signal) {}).on('data', function(data) {
-              return callback(data);
+            return stream.on('close', function(code, signal) {
+              return _this.conn.end();
+            }).on('data', function(data) {
+              return callback("" + data);
             }).stderr.on('data', function(data) {
-              return callback(data);
+              return callback('' + data);
             });
           });
         };

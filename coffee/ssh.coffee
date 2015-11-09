@@ -11,17 +11,18 @@ class ssh
     @conn.connect @ssh_config
   send: (request, callback) ->
     @conn.on 'ready', =>
-      #console.log 'Co ready'
       @conn.exec request, (err, stream) =>
         if err
           throw err
         stream.on('close', (code, signal) =>
-          #console.log 'Stream :: close :: code: ' + code + ', signal: ' + signal
+          @conn.end()
         ).on('data', (data) ->
-          callback data
+          callback "" + data
         ).stderr.on 'data', (data) ->
-          callback data
+          callback '' + data
 window.ssh = ssh
+
+
 
 ###conn.exec 'uptime', (err, stream) ->
     if err

@@ -1,6 +1,5 @@
 class Main
   constructor: ->
-    mysql = require "mysql"
     @app = angular.module('perplexe', ["ngRoute"])
 
     # Setup routes

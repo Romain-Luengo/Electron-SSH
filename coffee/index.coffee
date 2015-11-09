@@ -5,12 +5,14 @@ class IndexController
 
       $('[data-menu="click"]').click ->
         console.log "yep"
-        
-      $('#myModal').modal('show')
+
+      #$('#myModal').modal('show')
 
       $('[data-menu="test"]').click ->
-        monssh = new ssh $("#ip").val(), $("#name").val(), $("#pass").val(), "22"
-        console.log monssh.send("ls")
+        monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22")
+        monssh.send "cd../", (retour) ->
+          console.log retour
+
 
     @app.controller 'IndexTest', ($scope, $routeParams) ->
       $scope.message = "Je suis une variable"
