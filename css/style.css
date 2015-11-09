@@ -212,22 +212,36 @@ body {
 }
 .maincontent .mainonglet .consolemain {
   height: 94%;
-  margin-bottom: -40px;
+  margin-bottom: -33px;
   border-bottom: none;
   border: 1px solid #E7E7E7;
 }
-@media screen and (min-width: 768px) {
-  .modal:before {
-    display: inline-block;
-    vertical-align: middle;
-    content: " ";
-    height: 100%;
+@media screen and (max-width: 1000px) {
+  .maincontent .mainonglet .consolemain {
+    height: 94%;
+    margin-bottom: -37px;
+    border-bottom: none;
+    border: 1px solid #E7E7E7;
   }
 }
-.modal-dialog {
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
+@media screen and (max-width: 1500px) and (min-width: 1000px) {
+  .maincontent .mainonglet .consolemain {
+    height: 94%;
+    margin-bottom: -37px;
+    border-bottom: none;
+    border: 1px solid #E7E7E7;
+  }
+}
+@media screen and (max-width: 1800px) and (min-width: 1000px) {
+  .maincontent .mainonglet .consolemain {
+    height: 94%;
+    margin-bottom: -37px;
+    border-bottom: none;
+    border: 1px solid #E7E7E7;
+  }
+}
+.maincontent .mainonglet .consoleinput {
+  height: 4%;
 }
 
 .ptable {
