@@ -5,6 +5,8 @@ class IndexController
 
       $('[data-menu="click"]').click ->
         console.log "yep"
+        
+      $('#myModal').modal('show')
 
       $('[data-menu="test"]').click ->
         monssh = new ssh $("#ip").val(), $("#name").val(), $("#pass").val(), "22"
@@ -24,5 +26,6 @@ class IndexController
         remote.getCurrentWindow().unmaximize()
       else
         remote.getCurrentWindow().maximize()
+
 
 window.IndexController = IndexController

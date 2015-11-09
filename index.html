@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Perplexe</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" />
@@ -12,12 +13,11 @@
     <div id="sysbar">
       <div class="menu-container">
         <div class="item">
-          Fichier(s)
+          Connexion
           <div class="sub-menu">
-            <div class="sub-item" data-menu="add-torrent">
-              <i class="fa fa-plus"></i> Ajouter un torrent <span>(Ctrl+N)</span>
+            <div class="sub-item" data-menu="add-torrent" data-toggle="modal" data-target="#myModal">
+              <i class="fa fa-plus"></i> Ajouter une connexion <span>(Ctrl+N)</span>
             </div>
-            <input class="add-torrent-input" type="file" style="display: none;" />
           </div>
         </div>
         <div class="item">Options</div>
@@ -37,22 +37,38 @@
       </div>
     </div>
     <div id="sidebar">
-      <input id="ip" value="5.196.69.227" class="header-input"></input>
-      <input id="port" value="22" class="header-input"></input>
-      <input id="name" value="root" class="header-input"></input>
-      <input id="pass" value="nicolas95" class="header-input"></input>
-      <input id="test" data-menu="test" type="button" value="Connexion" class="col-lg-12 header-input" />
+      <input id="ip" value="5.196.69.227" class="header-input form-control"></input>
+      <input id="port" value="22" class="header-input form-control"></input>
+      <input id="name" value="root" class="header-input form-control"></input>
+      <input id="pass" value="nicolas95" type="password" class="header-input form-control"></input>
+      <input id="test" data-menu="test" type="button" value="Connexion" class="col-lg-12 header-input form-control" />
     </div>
     <div id="main-content" class="col-lg-9" ng-view>
 
     </div>
     <script src="js/jquery-1.9.1.js"></script>
-    <script src="js/filesize.min.js"></script>
-    <script src="js/handlebars-v2.0.0.js"></script>
-    <script src="js/templates.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.leanModal.min.js"></script>
+    <script src="js/materialize.js"></script>
     <script src="js/all.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="js/bootstrap.js"></script>
   </body>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>

@@ -17,8 +17,8 @@ body {
 
 #sysbar {
   -webkit-app-region: drag;
-  background-color: #2E3233;
-  border-bottom: 1px solid black;
+  background-color: white;
+  border-bottom: 1px solid #E7E7E7;
   width: 100%;
   @height: 35px;
   height: @height;
@@ -41,7 +41,8 @@ body {
       height: @height;
       font-size: 13px;
       cursor: pointer;
-      color: gray;
+      font-family: 'Roboto', sans-serif;
+      color: grey;
       margin-left: 10px;
       position: relative;
 
@@ -75,7 +76,7 @@ body {
       }
 
       &:hover {
-        color: white;
+        color: black;
 
         .sub-menu {
           display: block;
@@ -136,11 +137,11 @@ body {
   position: relative;
   vertical-align: top;
   display: inline-block;
-  background-color: #393E3F;
+  background-color: white;
   z-index: 1;
   width: 20%;
   height: 100%;
-  border-right: 1px solid black;
+  //border-right: 1px solid #E7E7E7;
   padding-top: 20px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -149,13 +150,14 @@ body {
   .header-input {
     white-space: nowrap;
     color: black;
-    background-color: #E9EAED;
-    font-size: 10px;
+    background-color: #FFFFFF;
+    font-size: 15px;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 2%;
     width: 80%;
     padding: 2px;
+    height: 30px;
     float: left;
 
     i {
@@ -191,4 +193,23 @@ body {
   vertical-align: top;
   width: 80%;
   margin-left: -5px;
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }

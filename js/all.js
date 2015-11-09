@@ -11,6 +11,7 @@
           $('[data-menu="click"]').click(function() {
             return console.log("yep");
           });
+          $('#myModal').modal('show');
           return $('[data-menu="test"]').click(function() {
             var monssh;
             monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22");
