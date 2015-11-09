@@ -168,10 +168,50 @@ body {
   display: inline-block;
   vertical-align: top;
   width: 80%;
-  margin-left: -5px;
+  height: 100%;
+  padding: 1%;
 }
 .modal {
   text-align: center;
+}
+.maincontent {
+  height: 100%;
+  padding-top: 5px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.maincontent .baronglet {
+  height: 40px;
+  position: fixed;
+  line-height: 40px;
+  text-align: center;
+  background-color: white;
+  padding-right: 22%;
+  padding-left: 0 !important;
+}
+.maincontent .baronglet .onglet {
+  height: 100%;
+  border-right: 1px solid #E7E7E7;
+}
+.maincontent .baronglet .active {
+  background-color: white;
+  border-bottom: none;
+  border-top: 1px solid #E7E7E7;
+  display: block;
+}
+.maincontent .disable {
+  display: none;
+}
+.maincontent .mainonglet {
+  height: 100%;
+  padding-top: 20px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.maincontent .mainonglet .consolemain {
+  height: 90%;
+  border-bottom: none;
+  border: 1px solid #E7E7E7;
 }
 @media screen and (min-width: 768px) {
   .modal:before {
