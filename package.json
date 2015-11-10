@@ -24,6 +24,7 @@
     "gulp-less": "^3.0.3",
     "gulp-plumber": "^1.0.1",
     "gulp-watch": "^4.3.5",
+    "hammerjs": "^2.0.4",
     "mysql": "^2.9.0"
   }
 }

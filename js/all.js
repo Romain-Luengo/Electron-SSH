@@ -11,12 +11,32 @@
           $('[data-menu="click"]').click(function() {
             return console.log("yep");
           });
-          return $('[data-menu="test"]').click(function() {
+          $('[data-menu="test"]').click(function() {
             var monssh;
             monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22");
             return monssh.send("cd../", function(retour) {
               return console.log(retour);
             });
+          });
+          $("#explorerbutton").click(function() {
+            if ($("#consolebutton").hasClass("active")) {
+              $("#explorerbutton").addClass("active");
+              $("#consolebutton").removeClass("active");
+              $("#explorermain").addClass("active");
+              $("#explorermain").removeClass("disable");
+              $("#consolemain").addClass("disable");
+              return $("#consolemain").removeClass("active");
+            }
+          });
+          return $("#consolebutton").click(function() {
+            if ($("#explorerbutton").hasClass("active")) {
+              $("#consolebutton").addClass("active");
+              $("#explorerbutton").removeClass("active");
+              $("#consolemain").addClass("active");
+              $("#consolemain").removeClass("disable");
+              $("#explorermain").addClass("disable");
+              return $("#explorermain").removeClass("active");
+            }
           });
         };
       })(this));

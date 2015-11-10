@@ -17,6 +17,20 @@ body {
   overflow: hidden;
   white-space: nowrap;
 }
+.btn {
+  float: left;
+}
+.submit {
+  margin-top: 5%;
+  width: 80%;
+  color: black !important;
+  background-color: #F5F5F5 !important;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.submit:hover {
+  background-color: #E7E7E7 !important;
+}
 #sysbar {
   -webkit-app-region: drag;
   background-color: white;
@@ -195,6 +209,7 @@ body {
   float: left;
   display: table;
   border-right: 1px solid white;
+  cursor: pointer;
 }
 .maincontent .baronglet .active {
   background-color: white;
