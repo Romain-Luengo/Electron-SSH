@@ -1,0 +1,54 @@
+#sidebar {
+  position: relative;
+  vertical-align: top;
+  background-color: white;
+  z-index: 1;
+  width: 200px;
+  height: 100%;
+  border-right: 1px solid #E7E7E7;
+  border-radius: 4px;
+  padding-top: 20px; 
+  overflow-x: auto;
+  overflow-y: hidden;
+  float: left;
+
+  .header-input {
+    white-space: nowrap;
+    color: black;
+    background-color: #FFFFFF;
+    font-size: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 2%;
+    width: 80%;
+    padding: 2px;
+    height: 30px;
+    float: left;
+
+    i {
+      margin-right: 2px;
+      font-size: 13px
+    }
+  }
+
+  .normal-item {
+    white-space: nowrap;
+    color: gray;
+    font-size: 15px;
+    padding-left: 45px;
+    //background-color: #535A5E;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      color: white;
+    }
+
+    i {
+      margin-right: 2px;
+      font-size: 12px
+    }
+  }
+}

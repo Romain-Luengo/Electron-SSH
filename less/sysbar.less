@@ -1,0 +1,120 @@
+@img: url("../img/crossword.png");
+
+#sysbar {
+  -webkit-app-region: drag;
+  background-color: white;
+  border-bottom: 1px solid #E7E7E7;
+  width: 100%;
+  @height: 35px;
+  height: @height;
+  line-height: @height;
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+  background-image: @img;
+  background-repeat: repeat;
+  background-size: auto;
+
+  .menu-container {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    -webkit-app-region: no-drag;
+
+    .item {
+      display: inline-block;
+      vertical-align: top;
+      min-width: 30px;
+      height: @height;
+      font-size: 13px;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      color: grey;
+      margin-left: 10px;
+      position: relative;
+
+      .sub-menu {
+        position: absolute;
+        min-width: 50px;
+        min-height: 30px;
+        background-color: white;
+        border: 1px solid black;
+        border-top: none;
+        display: none;
+
+        .sub-item {
+          color: gray;
+          width: 100%;
+          text-align: left;
+          padding-left: 15px;
+          padding-right: 15px;
+
+          span {
+            font-size: 10px;
+          }
+
+          &:hover {
+            color: gray;
+
+          }
+        }
+      }
+
+      &:hover {
+        color: black;
+
+        .sub-menu {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .action-container {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    -webkit-app-region: no-drag;
+
+    .bubble-bt {
+      @size: 17px;
+      height: @size;
+      width: @size;
+      line-height: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-block;
+      vertical-align: top;
+      margin-right:2px;
+    }
+
+    .bubble-red {
+      color: #FF605C;
+
+      &:hover {
+        color: #dc4642;
+      }
+    }
+
+    .bubble-green {
+      color: #0ECA37;
+
+      &:hover {
+        color: #0fa12e;
+      }
+    }
+
+    .bubble-orange {
+      color: #FEBD00;
+
+      &:hover {
+        color: #d09d07;
+      }
+    }
+  }
+}

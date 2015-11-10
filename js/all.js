@@ -1,4 +1,39 @@
 (function() {
+  var ftp;
+
+  ftp = (function() {
+    function ftp(host, name, password, port, callback) {
+      var Client;
+      Client = require('ftp');
+      this.conn = new Client();
+      this.conn.on('ready', (function(_this) {
+        return function() {
+          return _this.conn.list(err, list)(function() {
+            if (err) {
+              throw err;
+            }
+            console.dir(list);
+            return this.conn.end();
+          });
+        };
+      })(this));
+      this.conn.connect({
+        host: "5.196.69.227",
+        user: "root",
+        password: "nicolas95",
+        port: "22"
+      });
+    }
+
+    return ftp;
+
+  })();
+
+  window.ftp = ftp;
+
+}).call(this);
+
+(function() {
   var IndexController;
 
   IndexController = (function() {
@@ -13,18 +48,9 @@
           });
           $('[data-menu="test"]').click(function() {
             var monssh;
-            return monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22", function() {
-              return monssh.send("ls", function(retour) {
-                console.log(retour);
-                return monssh.send("cd node_modules", function(retour) {
-                  console.log(retour);
-                  return setTimeout(function() {
-                    return monssh.send("ls", function(retour) {
-                      return console.log(retour);
-                    });
-                  }, 1000);
-                });
-              });
+            monssh = new ftp($("#ip").val(), $("#name").val(), $("#pass").val(), "22");
+            return monssh.send("cd../", function(retour) {
+              return console.log(retour);
             });
           });
           $("#explorerbutton").click(function() {
@@ -38,14 +64,28 @@
             }
           });
           return $("#consolebutton").click(function() {
+            var monssh;
             if ($("#explorerbutton").hasClass("active")) {
               $("#consolebutton").addClass("active");
               $("#explorerbutton").removeClass("active");
               $("#consolemain").addClass("active");
               $("#consolemain").removeClass("disable");
               $("#explorermain").addClass("disable");
-              return $("#explorermain").removeClass("active");
+              $("#explorermain").removeClass("active");
             }
+            return monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22", function() {
+              return monssh.send("ls", function(retour) {
+                console.log(retour);
+                return monssh.send("cd node_modules", function(retour) {
+                  console.log(retour);
+                  return setTimeout(function() {
+                    return monssh.send("ls", function(retour) {
+                      return console.log(retour);
+                    });
+                  }, 1000);
+                });
+              });
+            });
           });
         };
       })(this));

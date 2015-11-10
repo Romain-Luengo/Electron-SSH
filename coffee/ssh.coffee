@@ -10,7 +10,7 @@ class ssh
       host: host
       username: name
       password: password
-    }
+      }
 
   send: (request, callback) ->
     @conn1.exec request, (err, stream) ->
