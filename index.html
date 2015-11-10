@@ -3,14 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <title>Perplexe</title>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/component.css" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/bootstrap.css" />
-
   </head>
   <body ng-app="perplexe">
     <div id="sysbar">
@@ -40,67 +37,38 @@
       </div>
     </div>
     <div id="sidebar">
-      <input id="ip" value="5.196.69.227" class="header-input"></input>
-      <input id="port" value="22" class="header-input"></input>
-      <input id="name" value="root" class="header-input"></input>
-      <input id="pass" value="nicolas95" type="password" class="header-input"></input>
-      <button class="progress-button" style="float: left;" data-style="flip-open" data-perspective data-horizontal>Submit</button>
+      <input id="ip" value="5.196.69.227" class="header-input form-control"></input>
+      <input id="port" value="22" class="header-input form-control"></input>
+      <input id="name" value="root" class="header-input form-control"></input>
+      <input id="pass" value="nicolas95" type="password" class="header-input form-control"></input>
+      <input id="test" data-menu="test" type="button" value="Connexion" class="col-lg-12 header-input form-control" />
     </div>
-
     <div id="main-content" class="col-lg-9" ng-view>
 
     </div>
-
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/hammer.min.js"></script>
     <script src="js/jquery.leanModal.min.js"></script>
+    <script src="js/materialize.js"></script>
     <script src="js/all.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/modernizr.custom.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/progressButton.js"></script>
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+  </body>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-
-  </body>
-
-  <script>
-
-
-  			[].slice.call( document.querySelectorAll( 'button.progress-button' ) ).forEach( function( bttn ) {
-  				new ProgressButton( bttn, {
-  					callback : function( instance ) {
-  						var progress = 0,
-  							interval = setInterval( function() {
-  								progress = Math.min( progress + Math.random() * 0.1, 0.8 );
-  								instance._setProgress( progress );
-
-  								if( progress === 1 ) {
-  									instance._stop(1);
-  									clearInterval( interval );
-  								}
-  							}, 200 );
-  					}
-  				} );
-  			} );
-
-
-  </script>
+  </div>
 </html>

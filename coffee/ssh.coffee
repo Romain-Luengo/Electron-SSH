@@ -1,25 +1,25 @@
 class ssh
-  constructor: (host, name, password, port) ->
-    @ssh_config = {
-      host: host,
-      port: port,
-      username: name,
+  constructor: (host, name, password, port, callback) ->
+    Client = require 'ssh2'
+    @conn1 = new Client()
+    @conn1.on('ready', () =>
+      console.log 'FIRST :: connection ready'
+      callback()
+    )
+    @conn1.connect {
+      host: host
+      username: name
       password: password
     }
-    Client = require('ssh2').Client
-    @conn = new Client
-    @conn.connect @ssh_config
+
   send: (request, callback) ->
-    @conn.on 'ready', =>
-      @conn.exec request, (err, stream) =>
-        if err
-          throw err
-        stream.on('close', (code, signal) =>
-          @conn.end()
-        ).on('data', (data) ->
-          callback "" + data
-        ).stderr.on 'data', (data) ->
-          callback '' + data
+    @conn1.exec request, (err, stream) ->
+      if err
+        console.log err
+        return
+      stream.on 'data', (data) ->
+        callback "" + data
+
 window.ssh = ssh
 
 

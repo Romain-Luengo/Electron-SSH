@@ -13,9 +13,18 @@
           });
           return $('[data-menu="test"]').click(function() {
             var monssh;
-            monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22");
-            return monssh.send("cd../", function(retour) {
-              return console.log(retour);
+            return monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22", function() {
+              return monssh.send("ls", function(retour) {
+                console.log(retour);
+                return monssh.send("cd node_modules", function(retour) {
+                  console.log(retour);
+                  return setTimeout(function() {
+                    return monssh.send("ls", function(retour) {
+                      return console.log(retour);
+                    });
+                  }, 1000);
+                });
+              });
             });
           });
         };
@@ -93,36 +102,33 @@
   var ssh;
 
   ssh = (function() {
-    function ssh(host, name, password, port) {
+    function ssh(host, name, password, port, callback) {
       var Client;
-      this.ssh_config = {
+      Client = require('ssh2');
+      this.conn1 = new Client();
+      this.conn1.on('ready', (function(_this) {
+        return function() {
+          console.log('FIRST :: connection ready');
+          return callback();
+        };
+      })(this));
+      this.conn1.connect({
         host: host,
-        port: port,
         username: name,
         password: password
-      };
-      Client = require('ssh2').Client;
-      this.conn = new Client;
-      this.conn.connect(this.ssh_config);
+      });
     }
 
     ssh.prototype.send = function(request, callback) {
-      return this.conn.on('ready', (function(_this) {
-        return function() {
-          return _this.conn.exec(request, function(err, stream) {
-            if (err) {
-              throw err;
-            }
-            return stream.on('close', function(code, signal) {
-              return _this.conn.end();
-            }).on('data', function(data) {
-              return callback("" + data);
-            }).stderr.on('data', function(data) {
-              return callback('' + data);
-            });
-          });
-        };
-      })(this));
+      return this.conn1.exec(request, function(err, stream) {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        return stream.on('data', function(data) {
+          return callback("" + data);
+        });
+      });
     };
 
     return ssh;
