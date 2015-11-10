@@ -167,11 +167,12 @@ body {
 #main-content {
   display: inline-block;
   vertical-align: top;
+  background-color: #E7E7E7;
   width: 80%;
   height: 100%;
   padding-top: 1%;
   padding-right: 1%;
-  padding-bottom: 1%;
+  padding-bottom: 42px;
   padding-left: 1%;
 }
 .modal {
@@ -183,65 +184,47 @@ body {
   padding-right: 0 !important;
 }
 .maincontent .baronglet {
-  height: 40px;
-  position: fixed;
-  line-height: 40px;
+  height: 7%;
   text-align: center;
-  background-color: white;
-  padding-right: 22%;
+  padding-right: 0 !important;
   padding-left: 0 !important;
 }
 .maincontent .baronglet .onglet {
   height: 100%;
-  border-right: 1px solid #E7E7E7;
+  width: 50%;
+  float: left;
+  display: table;
+  border-right: 1px solid white;
 }
 .maincontent .baronglet .active {
   background-color: white;
   border-bottom: none;
-  border-top: 1px solid #E7E7E7;
-  display: block;
+  border-top: 3px solid #908F8F;
 }
 .maincontent .disable {
   display: none;
 }
 .maincontent .mainonglet {
-  height: 100%;
-  padding-top: 20px;
+  height: 93%;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 .maincontent .mainonglet .consolemain {
-  height: 94%;
-  margin-bottom: -33px;
+  height: 100%;
   border-bottom: none;
-  border: 1px solid #E7E7E7;
-}
-@media screen and (max-width: 1000px) {
-  .maincontent .mainonglet .consolemain {
-    height: 94%;
-    margin-bottom: -37px;
-    border-bottom: none;
-    border: 1px solid #E7E7E7;
-  }
-}
-@media screen and (max-width: 1500px) and (min-width: 1000px) {
-  .maincontent .mainonglet .consolemain {
-    height: 94%;
-    margin-bottom: -37px;
-    border-bottom: none;
-    border: 1px solid #E7E7E7;
-  }
-}
-@media screen and (max-width: 1800px) and (min-width: 1000px) {
-  .maincontent .mainonglet .consolemain {
-    height: 94%;
-    margin-bottom: -37px;
-    border-bottom: none;
-    border: 1px solid #E7E7E7;
-  }
+  border: 1px solid white;
 }
 .maincontent .mainonglet .consoleinput {
   height: 4%;
+  background-color: white;
+  padding-right: 0;
+  padding-left: 0;
+}
+.maincontent .mainonglet .consolediv {
+  padding: 0;
+  bottom: 0;
+  position: absolute;
+  margin-left: -15px;
 }
 
 .ptable {
