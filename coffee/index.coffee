@@ -31,15 +31,15 @@ class IndexController
           $("#explorermain").addClass("disable")
           $("#explorermain").removeClass("active")
 
-        monssh = new ssh $("#ip").val(), $("#name").val(), $("#pass").val(), "22", ->
-          monssh.send "ls", (retour) ->
+      monssh = new ssh $("#ip").val(), $("#name").val(), $("#pass").val(), "22", ->
+        monssh.send "ls", (retour) ->
+          console.log retour
+          monssh.send "cd node_modules", (retour) ->
             console.log retour
-            monssh.send "cd node_modules", (retour) ->
-              console.log retour
-              setTimeout ->
-                monssh.send "ls", (retour) ->
-                  console.log retour
-              ,1000
+            setTimeout ->
+              monssh.send "ls", (retour) ->
+                console.log retour
+            ,1000
 
     @app.controller 'IndexTest', ($scope, $routeParams) ->
       $scope.message = "Je suis une variable"

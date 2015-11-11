@@ -43,6 +43,7 @@
       this.button();
       this.app.controller('IndexCtrl', (function(_this) {
         return function($scope) {
+          var monssh;
           $('[data-menu="click"]').click(function() {
             return console.log("yep");
           });
@@ -63,27 +64,26 @@
               return $("#consolemain").removeClass("active");
             }
           });
-          return $("#consolebutton").click(function() {
-            var monssh;
+          $("#consolebutton").click(function() {
             if ($("#explorerbutton").hasClass("active")) {
               $("#consolebutton").addClass("active");
               $("#explorerbutton").removeClass("active");
               $("#consolemain").addClass("active");
               $("#consolemain").removeClass("disable");
               $("#explorermain").addClass("disable");
-              $("#explorermain").removeClass("active");
+              return $("#explorermain").removeClass("active");
             }
-            return monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22", function() {
-              return monssh.send("ls", function(retour) {
+          });
+          return monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22", function() {
+            return monssh.send("ls", function(retour) {
+              console.log(retour);
+              return monssh.send("cd node_modules", function(retour) {
                 console.log(retour);
-                return monssh.send("cd node_modules", function(retour) {
-                  console.log(retour);
-                  return setTimeout(function() {
-                    return monssh.send("ls", function(retour) {
-                      return console.log(retour);
-                    });
-                  }, 1000);
-                });
+                return setTimeout(function() {
+                  return monssh.send("ls", function(retour) {
+                    return console.log(retour);
+                  });
+                }, 1000);
               });
             });
           });
