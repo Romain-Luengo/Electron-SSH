@@ -27,6 +27,7 @@
     "gulp-watch": "^4.3.5",
     "hammerjs": "^2.0.4",
     "mysql": "^2.9.0",
+    "querystring": "^0.2.0",
     "ssh2": "^0.4.12"
   }
 }
