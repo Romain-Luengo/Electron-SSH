@@ -13,7 +13,7 @@ class ssh
       }
 
   send: (request, callback) ->
-    @conn1.exec request, (err, stream) ->
+    @conn1.shell request, (err, stream) ->
       if err
         console.log err
         return

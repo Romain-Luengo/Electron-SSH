@@ -43,15 +43,15 @@
       this.button();
       this.app.controller('IndexCtrl', (function(_this) {
         return function($scope) {
-          var monssh;
           $('[data-menu="click"]').click(function() {
             return console.log("yep");
           });
           $('[data-menu="test"]').click(function() {
             var monssh;
-            monssh = new ftp($("#ip").val(), $("#name").val(), $("#pass").val(), "22");
-            return monssh.send("cd../", function(retour) {
-              return console.log(retour);
+            return monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22", function() {
+              return monssh.send("ls" + "\n", function(retour) {
+                return console.log(retour);
+              });
             });
           });
           $("#explorerbutton").click(function() {
@@ -64,7 +64,7 @@
               return $("#consolemain").removeClass("active");
             }
           });
-          $("#consolebutton").click(function() {
+          return $("#consolebutton").click(function() {
             if ($("#explorerbutton").hasClass("active")) {
               $("#consolebutton").addClass("active");
               $("#explorerbutton").removeClass("active");
@@ -73,19 +73,6 @@
               $("#explorermain").addClass("disable");
               return $("#explorermain").removeClass("active");
             }
-          });
-          return monssh = new ssh($("#ip").val(), $("#name").val(), $("#pass").val(), "22", function() {
-            return monssh.send("ls", function(retour) {
-              console.log(retour);
-              return monssh.send("cd node_modules", function(retour) {
-                console.log(retour);
-                return setTimeout(function() {
-                  return monssh.send("ls", function(retour) {
-                    return console.log(retour);
-                  });
-                }, 1000);
-              });
-            });
           });
         };
       })(this));
@@ -180,7 +167,7 @@
     }
 
     ssh.prototype.send = function(request, callback) {
-      return this.conn1.exec(request, function(err, stream) {
+      return this.conn1.shell(request, function(err, stream) {
         if (err) {
           console.log(err);
           return;

@@ -9,9 +9,9 @@ class IndexController
       #$('#myModal').modal('show')
 
       $('[data-menu="test"]').click ->
-        monssh = new ftp($("#ip").val(), $("#name").val(), $("#pass").val(), "22")
-        monssh.send "cd../", (retour) ->
-          console.log retour
+        monssh = new ssh $("#ip").val(), $("#name").val(), $("#pass").val(), "22", ->
+          monssh.send "ls"+"\n", (retour) ->
+            console.log retour
 
       $("#explorerbutton").click ->
         if $("#consolebutton").hasClass("active")
@@ -30,16 +30,6 @@ class IndexController
           $("#consolemain").removeClass("disable")
           $("#explorermain").addClass("disable")
           $("#explorermain").removeClass("active")
-
-      monssh = new ssh $("#ip").val(), $("#name").val(), $("#pass").val(), "22", ->
-        monssh.send "ls", (retour) ->
-          console.log retour
-          monssh.send "cd node_modules", (retour) ->
-            console.log retour
-            setTimeout ->
-              monssh.send "ls", (retour) ->
-                console.log retour
-            ,1000
 
     @app.controller 'IndexTest', ($scope, $routeParams) ->
       $scope.message = "Je suis une variable"
